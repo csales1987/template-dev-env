@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{% block lang -%}{{ lang|default('en') }}{%- endblock %}" {{ html_attr|default('') }} class="{% block html_class -%}{{ html_class|default('no-js') }}{%- endblock %}">
+    <head {{ head_attr|default('') }}>
+        {% block head %}
+            {% block meta %}
+                <meta charset="{% block meta_charset -%}{{ meta_charset|default('utf-8') }}{%- endblock %}">
+                <meta name="viewport" content="{% block meta_viewport -%}{{ meta_viewport|default('width=device-width, initial-scale=1') }}{%- endblock %}">
+            {% endblock meta %}
+
+            <title>
+                {%- block title_wrap -%}
+                    {{ title_prefix|default('') }}
+                    {%- block title -%}{{ title|default('Default Document Title') }}{%- endblock -%}
+                    {{ title_suffix|default('') }}
+                {%- endblock -%}
+            </title>
+
+            {% block favicon %}
+            {% endblock %}
+
+            {% block stylesheets %}
+            {% endblock %}
+
+            {% block javascripts %}
+            {% endblock %}
+        {% endblock %}
+    </head>
+    <body class="{% block body_class %}{{ body_class|default }}{% endblock %}" {{ body_attr|default('') }}>
+            {% block body -%}
+                {% block content_wrap %}
+                    {% block content %}{% endblock %}
+                {% endblock %}
+    
+                {% block overflow %}{% endblock %}
+    
+                {% block body_javascript %}
+                {% endblock %}
+            {%- endblock body %}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block content_wrap %}
+    <div class="content">
+        {% block content %}
+
+            {% block main_wrap %}
+                <main class="main">
+                    {% block main %}{% endblock %}
+                </main>
+            {% endblock main_wrap %}
+
+        {% endblock content %}
+    </div>
+{% endblock %}
