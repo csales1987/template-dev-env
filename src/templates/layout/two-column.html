@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+
+{% block content_wrap %}
+    <div class="content">
+        {% block content %}
+
+            {% block main_wrap %}
+                <main class="main">
+                    {% block main %}{% endblock %}
+                </main>
+            {% endblock main_wrap %}
+
+        {% endblock content %}
+
+        {% block aside_wrap %}
+            <aside class="aside">
+                {% block aside %}{% endblock %}
+            </aside>
+        {% endblock aside_wrap %}
+    </div>
+{% endblock %}

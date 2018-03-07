@@ -1,5 +1,17 @@
 {% extends 'layout/default.html' %}
 
 {% block main %}
-    <p>This is an example</p>
+    <h1>Example Template</h1>
+    <h2 style="whitespace: pre;">/src/templates/page/example/index.html</h2>
+
+    <p>
+        This is an example template for demonstration purposes. Any <pre>index.html</pre> file in a
+        directory under <code>/src/templates/page/</code> will be accessible under that path minus the
+        index portion of the path. E.g., this file is accessible via <code>http://localhost:3000/example</code>.
+    </p>
+
+    <p>
+        Page files named anything else besides "index" will be accessible via their name. See
+        <a href="http://localhost:3000/example/second-page">http://localhost:3000/example/second-page</a>.
+    </p>
 {% endblock %}

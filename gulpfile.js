@@ -19,7 +19,7 @@ gulp.task('browser-sync', function () {
             function (req, res, next) {
                 // If this is an document request, find and set the correct HTML file to render.
                 if (isHtmlReq(req)) {
-                    req.url = getResolvedRoute(req.url);
+                    req.url = getResolvedRoute(req);
                 }
                 
                 next();
@@ -27,7 +27,7 @@ gulp.task('browser-sync', function () {
         ],
         open: false
     });
-    opn('http://localhost:3000/_dash');
+    opn('http://localhost:3000/');
 });
 
 gulp.task('sass', ['fonts', 'images'], function () {
@@ -122,7 +122,8 @@ const getPages = function getPages() {
 }
 
 // Take the URL and resolve it to an HTML file to render.
-const getResolvedRoute = function getResolvedRoute(url) {
+const getResolvedRoute = function getResolvedRoute(req) {
+    let url = req.url;
     let route = '';
 
     // Strip leading/trailing slashes and HTML file extension.
